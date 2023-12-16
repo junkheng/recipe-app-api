@@ -14,7 +14,7 @@ CREATE_USER_URL = reverse('user:create')
 
 def create_user(**params):
     """create and return a new user"""
-    return get_user_model().object.create_user(**params)
+    return get_user_model().objects.create_user(**params)
 
 
 class PublicUserApiTests(TestCase):
@@ -49,7 +49,7 @@ class PublicUserApiTests(TestCase):
 
         self.assertEqual(res.status_code, status.HTTP_400_BAD_REQUEST)
 
-    def test_password_too_short(self):
+    def test_password_too_short_error(self):
         """test an error is returned if password is less than 5 chars"""
         payload = {
             'email': 'test@example.com',
