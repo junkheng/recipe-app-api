@@ -54,7 +54,7 @@ class PublicRecipeAPITests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
 
 
-class PrivateRecipeAPITests(TestCase):
+class PrivateRecipeApiTests(TestCase):
     """test authorized API requests"""
 
     def setUp(self):
@@ -107,7 +107,7 @@ class PrivateRecipeAPITests(TestCase):
         """test creating a recipe."""
         payload = {
             'title': 'Sample recipe',
-            'time_minues': 30,
+            'time_minutes': 30,
             'price': Decimal('5.99'),
         }
         res = self.client.post(RECIPES_URL, payload)
